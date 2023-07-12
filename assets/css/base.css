@@ -30,14 +30,40 @@ html {
     display: flex;
     flex-wrap: wrap;
 }
+.row {
+    margin-left: -8px ;
+    margin-right: -8px;
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.col-full {
+    width: 100%;
+}
+.col-half{
+    display: inline-block;
+    width: 50%;
+}
 
 .ml-8{
     margin-left: 8px;
 }
-
+.clear {
+    clear: both;
+}
 /* Animation */
 @keyframes fadeIn {
     from {
-
+        opacity: 0;
+        
+    } to {
+        opacity: 1;
     }
 }

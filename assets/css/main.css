@@ -94,13 +94,47 @@
 
 /* Header notify */
 .header__notify{
+    --scale :0;
+    --opacity: 0;
+    --time-transition: 150ms;
     position: absolute;
     top: 118%;
     width: 440px;
     right: 0;
     border: 1px solid #d3d3d3; 
     background-color: var(--white-color);
-}   
+    transform-origin: calc(100% - 20px) top;
+    transform: scale(var(--scale));
+    opacity:var(--opacity) ;
+    will-change: opacity,transform;
+    transition: var(--time-transition) transform ,var(--time-transition) opacity;
+}
+/* header arrow */
+
+.header__notify::before{
+    content: "";
+    border-width: 20px 30px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    right: 18px;
+    top: -30px;
+}
+
+.header__notify::after{
+    content: '';
+    width: 87px;
+    height: 20px;
+    position: absolute;
+    top: -13px;
+    right: 0;
+    cursor: pointer;
+}
+
+.header__navbar-item--has-notify:hover .header__notify{
+    --scale:1;
+    --opacity: 1;
+}
 
 .header__notify-header{
     height: 40px;
