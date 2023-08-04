@@ -43,11 +43,12 @@
                         </div>
                         <div class="container__form-content">
                             <div class="col-full">
-                                <input type="tel" placeholder="Số điện thoại" class="container__form-control">
+                                <input type="tel" autocomplete="on" placeholder="Số điện thoại"
+                                    class="container__form-control">
                             </div>
                             <div class="col-full">
                                 <input type="submit" value="Tiếp theo"
-                                    class="container__form-btn container__form-btn--disable">
+                                    class="container__form-btn-js container__form-btn container__form-btn--disable">
                             </div>
                             <div class="col-full container__form-spliter">
                                 <span class="line-spliter"></span>
@@ -57,12 +58,24 @@
                             <div class="row">
                                 <div class="col-half col">
                                     <a href="" class="container__form-signup-with">
-                                        Facebook
+                                        <div class="container__social-media-logo">
+                                            <img src="/assets/img/Facebook_Logo.png" alt=""
+                                                class="container__social-media-img">
+                                        </div>
+                                        <p class="container__social-media-name">
+                                            Facebook
+                                        </p>
                                     </a>
                                 </div>
                                 <div class="col-half col">
                                     <a href="" class="container__form-signup-with">
-                                        Google
+                                        <div class="container__social-media-logo">
+                                            <img src="/assets/img/google_logo.webp" alt=""
+                                                class="container__social-media-logo-img">
+                                        </div>
+                                        <p class="container__social-media-name">
+                                            Google
+                                        </p>
                                     </a>
                                 </div>
                             </div>
@@ -84,7 +97,9 @@
                         <footer class="container__form-footer">
                             <p class="container__change-to-signup">
                                 Bạn đã có tài khoản?
-                                <a href="" class="container__form-link">Đăng nhập</a>
+                                <a href="" class="container__form-link">
+                                    Đăng nhập
+                                </a>
                             </p>
                         </footer>
                     </form>
@@ -93,9 +108,44 @@
             </div>
         </div>
         <footer class="footer">
-
         </footer>
+        <div class="modal">
+            <div class="modal-container">
+                <div class="modal-content">
+                    <div class="col-full">
+                        <div class="modal-content-notice">
+                            <p class="modal-content-text">Chúng tôi sẽ gửi mã xác minh qua Zalo đến 0896374872
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-ful modal-control">
+                        <button class="modal-control-btn modal-control-btn-cancel">
+                            Hủy bỏ
+                        </button>
+                        <button class="modal-control-btn modal-control-btn-another">
+                            Chọn phương thức khác
+                        </button>
+                        <button class="modal-control-btn modal-control-btn-send">
+                            Gửi đến Zalo
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
+    <script>
+        const nextBtn = document.querySelector('.container__form-btn-js');
+        const inputForm = document.querySelector('.container__form-control');
+        inputForm.addEventListener('input', function () {
+            const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+            if (vnPhoneNumber.test(inputForm.value)) {
+                nextBtn.classList.remove('container__form-btn--disable');
+            } else {
+                nextBtn.classList.add('container__form-btn--disable');
+            }
+        })
+    </script>
 </body>
 
 </html>

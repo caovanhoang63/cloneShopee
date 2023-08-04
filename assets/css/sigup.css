@@ -100,6 +100,10 @@
     border-radius: 1px;
     border: 1px solid #ccc;
 }
+.container__form-control:focus{
+    outline: unset;
+    border-color: var(--black-color);
+}
 
 .container__form-btn{
     width: 100%;
@@ -141,7 +145,7 @@
 }
 
 .container__form-signup-with{
-    display: inline-block;
+    display: flex;
     padding: 12px;
     font-size: 1.5rem;
     text-decoration: none;
@@ -150,9 +154,33 @@
     width: 100%;
     border: 1px solid rgba(0,0,0,.26);
     border-radius: 1px;
+    justify-content: center;
 }
+
 .container__form-signup-with:hover{
     background-color: rgba(0,0,0,.02)
+}
+
+.container__change-to-signup{
+    color: rgb(0 0 0 / 26%);
+}
+
+.container__social-media-logo {
+    height: 22px;
+    width: auto;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.container__social-media-logo > img {
+    height: 100%;
+    width: auto;
+}
+
+.container__social-media-name {
+    padding-top: 3px;
+    display: inline-block;
+    margin: 0;
 }
 
 .container__form-policy{
@@ -174,7 +202,64 @@
     text-align: center;
     font-size: 1.4rem;
 }
+/* Modal */
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.container__change-to-signup{
-    color: rgb(0 0 0 / 26%);
+.modal-container{
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--white-color);
+    border-radius: 3px;
+    padding: 30px;
+    position: relative;
+}
+
+.modal-content{
+    font-size: 1.6em;
+    color: #555;
+    max-width: 440px;
+    margin: 0;
+}
+
+.modal-content-notice{
+    text-align: center;
+}
+.modal-content-text{
+    margin: 0;
+    width: 100%;
+}
+
+.modal-control{
+    display: flex;
+    margin-top: 30px;
+    
+}
+
+.modal-control-btn{
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #333;
+}
+
+.modal-control-btn-cancel{
+
+}
+
+.modal-control-btn-another{
+    margin: 0 8px;
+}
+
+.modal-control-btn-send{
+
 }
