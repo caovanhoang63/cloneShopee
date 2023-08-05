@@ -97,9 +97,24 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 30px;
-    border-radius: 1px;
+    border-radius: 2px;
     border: 1px solid #ccc;
 }
+.validation-icon{
+    position: absolute;
+    top: 23%;
+    right: 44px;
+    transform: translateY(-50%);
+    font-size: 1.6em;
+}
+
+.container__form-invalid-num{
+    position: absolute;
+    top: 30%;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
 .container__form-control:focus{
     outline: unset;
     border-color: var(--black-color);
@@ -112,7 +127,7 @@
     color: var(--white-color);
     padding: 12px;
     border: unset;
-    border-radius: 1px;
+    border-radius: 2px;
     text-transform: uppercase;
     margin-bottom: 35px;
     cursor: pointer;
@@ -153,7 +168,7 @@
     text-align: center;
     width: 100%;
     border: 1px solid rgba(0,0,0,.26);
-    border-radius: 1px;
+    border-radius: 2px;
     justify-content: center;
 }
 
@@ -217,8 +232,6 @@
 }
 
 .modal-container{
-    width: 100%;
-    max-width: 600px;
     background-color: var(--white-color);
     border-radius: 3px;
     padding: 30px;
@@ -226,34 +239,43 @@
 }
 
 .modal-content{
-    font-size: 1.6em;
+    font-size: 1.7em;
     color: #555;
-    max-width: 440px;
     margin: 0;
 }
 
 .modal-content-notice{
+    display: flex;
     text-align: center;
 }
 .modal-content-text{
-    margin: 0;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .modal-control{
     display: flex;
-    margin-top: 30px;
+    margin-top: 40px;
     
 }
 
 .modal-control-btn{
+    text-decoration: none ;
     display: inline-block;
     padding: 8px 16px;
-    border: 1px solid #333;
+    border: 1px solid rgba(0,0,0,.09);
+    box-shadow: 0 1px 1px rgba(0,0,0,.03);
+    background-color: var(--white-color);
+    border-radius: 2px;
+    color: #555;
+}
+
+.modal-control-btn:hover{
+    background-color: rgba(0,0,0,.02);
 }
 
 .modal-control-btn-cancel{
-
+    cursor: pointer;
 }
 
 .modal-control-btn-another{
@@ -261,5 +283,11 @@
 }
 
 .modal-control-btn-send{
+    background-color: var(--primary-color);
+    color: var(--white-color);  
+}
 
+.modal-control-btn-send:hover{
+    background-color: var(--primary-color);
+    opacity: .7;
 }

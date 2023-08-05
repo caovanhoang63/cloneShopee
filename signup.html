@@ -45,6 +45,9 @@
                             <div class="col-full">
                                 <input type="tel" autocomplete="on" placeholder="Số điện thoại"
                                     class="container__form-control">
+                                <i class="display-none fas fa-check-circle color-green validation-icon"></i>
+
+                                <div class="display-none container__form-invalid-num">Số điện thoại không hợp lệ</div>
                             </div>
                             <div class="col-full">
                                 <input type="submit" value="Tiếp theo"
@@ -109,25 +112,27 @@
         </div>
         <footer class="footer">
         </footer>
-        <div class="modal">
+        <div class="modal display-none">
             <div class="modal-container">
                 <div class="modal-content">
                     <div class="col-full">
                         <div class="modal-content-notice">
-                            <p class="modal-content-text">Chúng tôi sẽ gửi mã xác minh qua Zalo đến 0896374872
+                            <p class="modal-content-text">Chúng tôi sẽ gửi mã xác minh qua Zalo đến (+84)
+                                96374872
                             </p>
                         </div>
                     </div>
                     <div class="col-ful modal-control">
-                        <button class="modal-control-btn modal-control-btn-cancel">
+
+                        <button href="" class="modal-control-btn modal-control-btn-cancel">
                             Hủy bỏ
                         </button>
-                        <button class="modal-control-btn modal-control-btn-another">
-                            Chọn phương thức khác
-                        </button>
-                        <button class="modal-control-btn modal-control-btn-send">
+                        <a href="" class="modal-control-btn modal-control-btn-another">
+                            Các phương thức khác
+                        </a>
+                        <a href="" class="modal-control-btn modal-control-btn-send">
                             Gửi đến Zalo
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -137,13 +142,34 @@
     <script>
         const nextBtn = document.querySelector('.container__form-btn-js');
         const inputForm = document.querySelector('.container__form-control');
+        const checkRightNumber = document.querySelector('.validation-icon');
+        const checkWrongNumber = document.querySelector('.container__form-invalid-num');
         inputForm.addEventListener('input', function () {
             const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
             if (vnPhoneNumber.test(inputForm.value)) {
                 nextBtn.classList.remove('container__form-btn--disable');
             } else {
                 nextBtn.classList.add('container__form-btn--disable');
+                checkRightNumber.classList.add('display-none');
             }
+        })
+        inputForm.addEventListener('blur', function () {
+            const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+            if (vnPhoneNumber.test(inputForm.value)) {
+                checkRightNumber.classList.remove('display-none');
+                checkWrongNumber.classList.add('display-none');
+            }
+        })
+        nextBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const modal = document.querySelector('.modal');
+            modal.classList.remove('display-none');
+        })
+        const modalCancelBtn = document.querySelector('.modal-control-btn-cancel');
+        modalCancelBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const modal = document.querySelector('.modal');
+            modal.classList.add('display-none');
         })
     </script>
 </body>

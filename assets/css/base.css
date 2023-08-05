@@ -58,6 +58,14 @@ html {
 .clear {
     clear: both;
 }
+
+.display-none {
+    display: none !important;
+}
+
+.color-green{
+    color: green !important;
+}
 /* Animation */
 @keyframes fadeIn {
     from {
