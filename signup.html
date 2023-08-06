@@ -144,27 +144,38 @@
         const inputForm = document.querySelector('.container__form-control');
         const checkRightNumber = document.querySelector('.validation-icon');
         const checkWrongNumber = document.querySelector('.container__form-invalid-num');
+        let alreadyEnterPhoneNumber = false;
+
         inputForm.addEventListener('input', function () {
             const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
             if (vnPhoneNumber.test(inputForm.value)) {
+                alreadyEnterPhoneNumber = true;
                 nextBtn.classList.remove('container__form-btn--disable');
+                checkWrongNumber.add('display-none')
             } else {
                 nextBtn.classList.add('container__form-btn--disable');
                 checkRightNumber.classList.add('display-none');
+                if (alreadyEnterPhoneNumber) {
+                    checkWrongNumber.classList.remove('display-none');
+                }
             }
         })
+
         inputForm.addEventListener('blur', function () {
             const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
             if (vnPhoneNumber.test(inputForm.value)) {
                 checkRightNumber.classList.remove('display-none');
-                checkWrongNumber.classList.add('display-none');
+            } else {
+                checkWrongNumber.classList.remove('display-none');
             }
         })
+
         nextBtn.addEventListener('click', function (e) {
             e.preventDefault();
             const modal = document.querySelector('.modal');
             modal.classList.remove('display-none');
         })
+
         const modalCancelBtn = document.querySelector('.modal-control-btn-cancel');
         modalCancelBtn.addEventListener('click', function (e) {
             e.preventDefault();
