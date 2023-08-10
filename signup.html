@@ -43,7 +43,7 @@
                         </div>
                         <div class="container__form-content">
                             <div class="col-full">
-                                <input type="tel" autocomplete="on" placeholder="Số điện thoại"
+                                <input autofocus type="tel" autocomplete="on" placeholder="Số điện thoại"
                                     class="container__form-control">
                                 <i class="display-none fas fa-check-circle color-green validation-icon"></i>
 
@@ -110,8 +110,124 @@
                 </div>
             </div>
         </div>
+        <div class="contact">
+            <ul class="contact__list">
+                <li class="contact__item">
+                    <h3 class="contact__title">
+                        CHĂM SÓC KHÁCH HÀNG
+                    </h3>
+                    <ul class="contact__item-list">
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Trung tâm trợ giúp</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Shopee Blog</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Shopee Mall</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Hướng dẫn mua hàng</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Hướng dẫn bán hàng</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Thanh toán</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Shopee Xu</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Vận chuyển</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Trả hàng và hoàn tiền</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Chăm sóc khách hàng</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Chính sách bảo hành</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="contact__item">
+                    <h3 class="contact__title">
+                        VỀ SHOPEE
+                    </h3>
+                    <ul class="contact__item-list">
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Giới thiệu về Shopee Việt Nam</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Tuyển dụng</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Điều khoản Shopee</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Chính sách bảo mật</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Chính hãng</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Kênh người bán</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Flash Sales</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Chương trình liên kết tiếp thị Shopee</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Liên hệ với truyền thông</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="contact__item">
+                    <h3 class="contact__title">
+                        THANH TOÁN
+                    </h3>
+                    <ul class="contact__item-list">
+                        <ul class="contact__list-logo"></ul>
+                        <ul class="contact__list-logo"></ul>
+                    </ul>
+                    <h3 class="contact__tile">
+                        ĐƠN VỊ VẬN CHUYỂN
+                    </h3>
+                    <ul class="contact__item-list">
+                    </ul>
+                </li>
+                <li class="contact__item">
+                    <h3 class="contact__title">
+                        THEO DÕI CHÚNG TÔI TRÊN
+                    </h3>
+                    <ul class="contact__item-list">
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Facebook</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">Instagram</a>
+                        </li>
+                        <li class="contact__item-list-content">
+                            <a href="" class="">LinkedIn</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="contact__item">
+                    <h3 class="contact__title">
+                        TẢI ỨNG DỤNG SHOPEE NGAY
+                    </h3>
+                    <ul class="contact__item-list"></ul>
+                </li>
+            </ul>
+        </div>
         <footer class="footer">
         </footer>
+
+
         <div class="modal display-none">
             <div class="modal-container">
                 <div class="modal-content">
@@ -144,38 +260,30 @@
         const inputForm = document.querySelector('.container__form-control');
         const checkRightNumber = document.querySelector('.validation-icon');
         const checkWrongNumber = document.querySelector('.container__form-invalid-num');
-        let alreadyEnterPhoneNumber = false;
-
+        const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+        // check number phone input
         inputForm.addEventListener('input', function () {
-            const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
-            if (vnPhoneNumber.test(inputForm.value)) {
-                alreadyEnterPhoneNumber = true;
-                nextBtn.classList.remove('container__form-btn--disable');
-                checkWrongNumber.add('display-none')
-            } else {
-                nextBtn.classList.add('container__form-btn--disable');
-                checkRightNumber.classList.add('display-none');
-                if (alreadyEnterPhoneNumber) {
-                    checkWrongNumber.classList.remove('display-none');
-                }
-            }
-        })
-
-        inputForm.addEventListener('blur', function () {
-            const vnPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
             if (vnPhoneNumber.test(inputForm.value)) {
                 checkRightNumber.classList.remove('display-none');
+                nextBtn.classList.remove('container__form-btn--disable');
+                checkWrongNumber.classList.add('display-none');
+                inputForm.style.borderColor = 'black';
+                inputForm.style.backgroundColor = '#fff';
             } else {
+                checkRightNumber.classList.add('display-none');
                 checkWrongNumber.classList.remove('display-none');
+                nextBtn.classList.add('container__form-btn--disable');
+                inputForm.style.borderColor = 'var(--primary-color)';
+                inputForm.style.backgroundColor = '#fff6f7';
             }
         })
-
+        //show modal
         nextBtn.addEventListener('click', function (e) {
             e.preventDefault();
             const modal = document.querySelector('.modal');
             modal.classList.remove('display-none');
         })
-
+        // cancel modal 
         const modalCancelBtn = document.querySelector('.modal-control-btn-cancel');
         modalCancelBtn.addEventListener('click', function (e) {
             e.preventDefault();
